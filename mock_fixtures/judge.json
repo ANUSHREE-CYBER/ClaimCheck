@@ -1,0 +1,6 @@
+{"results": [
+ {"claim_id": 1, "reason": "The evidence says the tower is on the Champ de Mars in Paris, France, which matches the claim.", "verdict": "SUPPORTED", "evidence_quote": "is a lattice tower on the Champ de Mars in Paris, France", "better_search_query": ""},
+ {"claim_id": 2, "reason": "The claim says the 1900 World's Fair, but the evidence says the tower was the centrepiece of the 1889 World's Fair.", "verdict": "CONTRADICTED", "evidence_quote": "it was constructed as the centrepiece of the 1889 World's Fair", "better_search_query": ""},
+ {"claim_id": 3, "reason": "The evidence is about the tower and does not mention the Statue of Liberty.", "verdict": "NOT_ENOUGH_EVIDENCE", "evidence_quote": "", "better_search_query": "Gustave Eiffel"},
+ {"claim_id": 4, "reason": "The evidence does not mention the number of steps.", "verdict": "NOT_ENOUGH_EVIDENCE", "evidence_quote": "", "better_search_query": ""}
+]}

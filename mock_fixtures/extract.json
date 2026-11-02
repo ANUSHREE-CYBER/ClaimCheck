@@ -1,0 +1,6 @@
+{"claims": [
+ {"claim": "The Eiffel Tower is in Paris, France.", "search_query": "Eiffel Tower"},
+ {"claim": "The Eiffel Tower was built for the 1900 World's Fair.", "search_query": "Eiffel Tower"},
+ {"claim": "Gustave Eiffel helped build the Statue of Liberty.", "search_query": "Eiffel Tower"},
+ {"claim": "Visitors can climb 1,710 steps to the top of the Eiffel Tower.", "search_query": "Eiffel Tower"}
+]}
