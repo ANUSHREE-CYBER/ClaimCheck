@@ -1,0 +1,21 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "The Great Pyramid of Giza is in Egypt.",
+    "search_query": "Great Pyramid of Giza"
+   },
+   {
+    "claim": "The Great Pyramid of Giza was built as a tomb for the pharaoh Khufu.",
+    "search_query": "Great Pyramid of Giza"
+   },
+   {
+    "claim": "The Great Pyramid of Giza was the tallest man-made structure in the world for more than 3,800 years.",
+    "search_query": "Great Pyramid of Giza"
+   }
+  ]
+ }
+}

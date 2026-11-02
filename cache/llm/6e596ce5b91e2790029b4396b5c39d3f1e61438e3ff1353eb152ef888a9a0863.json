@@ -1,0 +1,21 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "Alexander Graham Bell is credited with inventing the telephone.",
+    "search_query": "Alexander Graham Bell"
+   },
+   {
+    "claim": "Alexander Graham Bell was born in Edinburgh, Scotland, in 1847.",
+    "search_query": "Alexander Graham Bell"
+   },
+   {
+    "claim": "Alexander Graham Bell founded the software company Microsoft.",
+    "search_query": "Alexander Graham Bell"
+   }
+  ]
+ }
+}

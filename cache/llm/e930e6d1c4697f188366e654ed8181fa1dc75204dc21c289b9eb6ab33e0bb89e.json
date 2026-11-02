@@ -1,0 +1,23 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states that the Taj Mahal is an ivory-white marble mausoleum in Agra, India.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "is an ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The provided text does not mention whether the Taj Mahal is a UNESCO World Heritage Site.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Taj Mahal UNESCO World Heritage Site"
+   }
+  ]
+ }
+}

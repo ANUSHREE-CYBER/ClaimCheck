@@ -131,8 +131,8 @@ def summarise(claim_rows, answer_rows, live_calls, review_notes=()):
         "",
         "**Honest limits:** this is a very small test set (30 claims, 5 answers) written by one person, "
         "using well-known, stable facts and hand-written search queries in Part 1. Real AI answers are "
-        "messier, so real-world accuracy will likely be lower. The prompts were not changed after "
-        "seeing these results.",
+        "messier, so real-world accuracy will likely be lower. The judge and reflect prompts were not "
+        "changed after seeing these results; the extract prompt was changed once (v1 to v2, see notes).",
     ]
     if review_notes:
         lines += ["", "**Notes written after looking at the first run:**", ""]

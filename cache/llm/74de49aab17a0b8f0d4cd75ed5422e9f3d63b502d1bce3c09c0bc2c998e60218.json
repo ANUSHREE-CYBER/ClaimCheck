@@ -1,0 +1,44 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states that Apollo 11 was the American spaceflight that first landed humans on the Moon in July 1969.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "Apollo 11 (July 16–24, 1969) was the American spaceflight that first landed humans on the Moon",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence confirms Neil Armstrong became the first person to walk on the Moon as commander of the Apollo 11 mission.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "became the first person to walk on the Moon",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence states that Buzz Aldrin was the second person to walk on the Moon after mission commander Neil Armstrong.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "He was the second person to walk on the Moon after mission commander Neil Armstrong.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 4,
+    "reason": "The evidence contradicts the claim by stating the mission was launched atop a Saturn V rocket from Kennedy Space Center in Florida.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "Launched atop a Saturn V rocket from Kennedy Space Center in Florida",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 5,
+    "reason": "The evidence is about an Irish revolutionary named Michael Collins, not the astronaut Michael Collins.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Michael Collins astronaut command module lunar orbit"
+   }
+  ]
+ }
+}

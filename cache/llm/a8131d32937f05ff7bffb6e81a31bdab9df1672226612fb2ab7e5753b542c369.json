@@ -1,0 +1,37 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence explicitly states that Mount Everest is the highest mountain on Earth above sea level.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "is the highest mountain on Earth above sea level.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states that the mountain lies in the Mahalangur Himal sub-range of the Himalayas.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "It lies in the Mahalangur Himal sub-range of the Himalayas",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence states that the summit marks part of the China–Nepal border.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "marks part of the China–Nepal border at its summit.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 4,
+    "reason": "The evidence confirms that a joint survey in 2020 measured its height as 8,848.86 m.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "measured in 2020 through a joint survey by Nepalese and Chinese authorities as 8,848.86 m",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

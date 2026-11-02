@@ -1,0 +1,23 @@
+{
+ "step": "reflect",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence mentions the Moon's distance and artificial structures visible from space, but it does not state that the Great Wall is visible from the Moon with the naked eye.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Great Wall visible from Moon naked eye"
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence provides information about goldfish and an Irish film, but does not mention anything about their memory span.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "goldfish memory span three seconds"
+   }
+  ]
+ }
+}

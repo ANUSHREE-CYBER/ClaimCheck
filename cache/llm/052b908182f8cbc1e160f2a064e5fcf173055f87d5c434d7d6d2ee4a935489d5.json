@@ -1,0 +1,21 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "Apollo 11 was the first crewed mission to land on the Moon, in July 1969.",
+    "search_query": "Apollo 11"
+   },
+   {
+    "claim": "Neil Armstrong was the first person to walk on the lunar surface.",
+    "search_query": "Neil Armstrong"
+   },
+   {
+    "claim": "Michael Collins stayed in lunar orbit in the command module.",
+    "search_query": "Michael Collins"
+   }
+  ]
+ }
+}

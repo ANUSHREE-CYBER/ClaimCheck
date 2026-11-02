@@ -7,7 +7,7 @@
   {
     "name": "All correct",
     "what_it_shows": "A fully correct answer. Every claim should come out green.",
-    "text": "Mount Everest is Earth's highest mountain above sea level. It is located in the Himalayas, on the border between Nepal and China. Edmund Hillary and Tenzing Norgay made the first confirmed ascent of Everest in 1953."
+    "text": "Mount Everest is Earth's highest mountain above sea level. It is located in the Himalayas, on the border between Nepal and China. In 2020, a joint survey by Nepal and China measured its height as 8,848.86 metres."
   },
   {
     "name": "Made-up research paper",
@@ -16,7 +16,7 @@
   },
   {
     "name": "A known limitation",
-    "what_it_shows": "Popular myths and changing numbers. Wikipedia's short intro often does not mention them, so some claims stay unchecked even though they are wrong.",
+    "what_it_shows": "Popular myths and changing numbers. Wikipedia's short intro often does not mention myths, so they stay unchecked even though they are wrong. Numbers like population change over time and differ between sources.",
     "text": "The Great Wall of China is visible from the Moon with the naked eye. Goldfish have a memory span of only three seconds. Tokyo has about 37 million people in its metro area."
   },
   {

@@ -1,0 +1,25 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "Mount Everest is Earth's highest mountain above sea level.",
+    "search_query": "Mount Everest"
+   },
+   {
+    "claim": "Mount Everest is located in the Himalayas.",
+    "search_query": "Mount Everest"
+   },
+   {
+    "claim": "Mount Everest is on the border between Nepal and China.",
+    "search_query": "Mount Everest"
+   },
+   {
+    "claim": "In 2020, a joint survey by Nepal and China measured the height of Mount Everest as 8,848.86 metres.",
+    "search_query": "Mount Everest height"
+   }
+  ]
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence explicitly states that the Taj Mahal is a mausoleum in Agra, India.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states it was commissioned by Shah Jahan, not Akbar.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "commissioned in 1631 by the fifth Mughal emperor, Shah Jahan",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence describes it as an ivory-white marble mausoleum, which contradicts that it is made almost entirely of red sandstone.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "ivory-white marble mausoleum",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 4,
+    "reason": "The provided text does not mention whether the Taj Mahal is a UNESCO World Heritage Site.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Taj Mahal UNESCO World Heritage Site"
+   }
+  ]
+ }
+}

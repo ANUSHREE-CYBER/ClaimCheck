@@ -1,0 +1,30 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The provided text does not mention whether the Great Wall is visible from the Moon.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Great Wall visible from space"
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence discusses an Irish feature film titled Goldfish Memory rather than the memory span of goldfish.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "goldfish memory span"
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence states the United Nations estimates the total population at 36,954,512, which is about 37 million.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "the United Nations estimates the total population at 36,954,512",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

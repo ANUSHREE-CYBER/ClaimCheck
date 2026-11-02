@@ -1,0 +1,21 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "The Great Wall of China is visible from the Moon with the naked eye.",
+    "search_query": "Great Wall of China"
+   },
+   {
+    "claim": "Goldfish have a memory span of only three seconds.",
+    "search_query": "Goldfish memory"
+   },
+   {
+    "claim": "Tokyo has about 37 million people in its metro area.",
+    "search_query": "Tokyo metropolitan area"
+   }
+  ]
+ }
+}

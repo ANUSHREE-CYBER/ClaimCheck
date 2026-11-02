@@ -1,0 +1,25 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "Dr. Elena Vasquez-Thornbury of MIT wrote the 2019 paper Recursive Quantum Gradient Folding.",
+    "search_query": "Elena Vasquez-Thornbury"
+   },
+   {
+    "claim": "Recursive Quantum Gradient Folding introduced the QGF algorithm.",
+    "search_query": "QGF algorithm"
+   },
+   {
+    "claim": "The QGF algorithm cut neural network training time by 94 percent.",
+    "search_query": "QGF algorithm"
+   },
+   {
+    "claim": "Elena Vasquez-Thornbury later won the Turing Award for the work on QGF algorithm.",
+    "search_query": "Turing Award"
+   }
+  ]
+ }
+}

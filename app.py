@@ -167,7 +167,7 @@ def check_tab():
         cols = st.columns(len(DEMO_CASES))
         for i, case in enumerate(DEMO_CASES):
             cols[i].button(case["name"], key=f"demo_{i}", help=case["what_it_shows"],
-                           on_click=load_demo, args=(i,), use_container_width=True)
+                           on_click=load_demo, args=(i,), width="stretch")
 
     text = st.text_area("AI answer to check", key="answer_text", height=150,
                         placeholder="e.g. The Eiffel Tower is in Paris. It was finished in 1925.")
@@ -192,7 +192,7 @@ def eval_tab():
         return
     st.markdown(results.get("summary_markdown", ""))
     with st.expander("Every labelled claim and what ClaimCheck said"):
-        st.dataframe(results.get("claim_rows", []), use_container_width=True)
+        st.dataframe(results.get("claim_rows", []), width="stretch")
 
 
 def how_tab():

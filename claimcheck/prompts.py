@@ -15,7 +15,7 @@ All prompts follow C.L.E.A.R.:
 """
 
 PROMPT_VERSIONS = {
-    "extract": "extract-v1",
+    "extract": "extract-v2",
     "judge": "judge-v1",
     "reflect": "reflect-v1",
 }
@@ -27,28 +27,36 @@ PROMPT_VERSIONS = {
 # Why few-shot here: the examples fix the output shape and show the
 # "self-contained claim" style (no "it"/"she") and that opinions are skipped.
 # Zero-shot versions of this prompt tend to merge facts or keep pronouns.
+#
+# v2 (3 Nov 2026): v1 silently DROPPED statements the model believed were
+# false (e.g. "commissioned by Akbar", "launched by the European Space
+# Agency"), so the checker never saw the errors. v2 says extraction is not
+# judging, keeps the text's order instead of "most important first", and
+# Example 1 now shows a WRONG fact ("born in Paris") being kept as written.
 # ---------------------------------------------------------------------------
 
-EXTRACT_SYSTEM = """You extract checkable factual claims from a text.
+EXTRACT_SYSTEM = """You extract checkable factual claims from a text. Your job is only to extract, not to judge.
 
 Rules:
 1. A claim is one short factual statement that could be checked on Wikipedia.
 2. Make each claim self-contained: replace pronouns (it, he, she, they, this) with the name they refer to.
-3. Skip opinions, advice, predictions and vague statements.
-4. Keep the original meaning exactly, including numbers and dates. Never correct a claim, even if you think it is wrong.
-5. Return at most 8 claims, the most important first.
-6. For each claim, write a search_query: 2 to 6 words naming the Wikipedia article most likely to contain the fact.
+3. Split a sentence with several facts into several claims.
+4. Include EVERY factual statement, even ones you believe are wrong. Copy names, numbers and dates exactly as written. Never fix or drop a wrong statement: finding errors is the next step's job.
+5. Skip only opinions, advice, predictions and vague statements.
+6. Return at most 8 claims, in the order they appear in the text.
+7. For each claim, write a search_query: 2 to 6 words naming the Wikipedia article most likely to contain the fact.
 
 Output only JSON in this format:
 {"claims": [{"claim": "...", "search_query": "..."}]}
 If there are no factual claims, output {"claims": []}."""
 
 EXTRACT_EXAMPLES = """Example 1
-Text: Marie Curie was a brilliant scientist. She won the Nobel Prize in Physics in 1903 and later a second Nobel Prize in Chemistry. She was born in Warsaw.
+Text: Marie Curie was a brilliant scientist. She won the Nobel Prize in Physics in 1903 and later a second Nobel Prize in Chemistry. She was born in Paris.
 Output: {"claims": [
  {"claim": "Marie Curie won the Nobel Prize in Physics in 1903.", "search_query": "Marie Curie"},
  {"claim": "Marie Curie won a Nobel Prize in Chemistry.", "search_query": "Marie Curie"},
- {"claim": "Marie Curie was born in Warsaw.", "search_query": "Marie Curie"}]}
+ {"claim": "Marie Curie was born in Paris.", "search_query": "Marie Curie"}]}
+(Marie Curie was really born in Warsaw, but the text says Paris, so the claim keeps "Paris".)
 
 Example 2
 Text: Python is the best language for beginners. It was created by Guido van Rossum and first released in 1991.
@@ -59,6 +67,11 @@ Output: {"claims": [
 Example 3
 Text: Honestly, I think you should visit soon, the weather is lovely and you will have fun.
 Output: {"claims": []}"""
+
+
+# Kept for the record (not used): the v1 rules that let the model drop wrong facts.
+EXTRACT_SYSTEM_V1_RULES = """4. Keep the original meaning exactly, including numbers and dates. Never correct a claim, even if you think it is wrong.
+5. Return at most 8 claims, the most important first."""
 
 
 def build_extract_prompt(answer_text):

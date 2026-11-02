@@ -1,0 +1,25 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "The Taj Mahal is a mausoleum in Agra, India.",
+    "search_query": "Taj Mahal"
+   },
+   {
+    "claim": "The Taj Mahal was commissioned by the Mughal emperor Akbar as a tomb for his favourite wife, Mumtaz Mahal.",
+    "search_query": "Taj Mahal"
+   },
+   {
+    "claim": "The Taj Mahal is made almost entirely of red sandstone.",
+    "search_query": "Taj Mahal"
+   },
+   {
+    "claim": "The Taj Mahal is a UNESCO World Heritage Site.",
+    "search_query": "Taj Mahal"
+   }
+  ]
+ }
+}

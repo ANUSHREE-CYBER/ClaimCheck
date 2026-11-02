@@ -1,0 +1,30 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence explicitly states the pyramid is in Giza, Egypt.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "Giza pyramid complex in Giza, Egypt.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states it served as the tomb for Egyptian Pharaoh Khufu.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "The Great Pyramid served as the tomb of Egyptian Pharaoh Khufu",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The claim says 3,800 years, but the evidence states more than 3,700 years.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "the world's tallest human-made structure for more than 3,700 years.",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

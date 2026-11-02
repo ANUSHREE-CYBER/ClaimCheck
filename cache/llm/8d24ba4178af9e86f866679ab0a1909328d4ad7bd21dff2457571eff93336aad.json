@@ -1,0 +1,21 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "Venus is the second planet from the Sun.",
+    "search_query": "Venus"
+   },
+   {
+    "claim": "Venus is the hottest planet in the Solar System.",
+    "search_query": "Venus"
+   },
+   {
+    "claim": "A day on Venus is shorter than a day on Earth.",
+    "search_query": "Venus"
+   }
+  ]
+ }
+}

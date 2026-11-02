@@ -1,0 +1,419 @@
+{
+ "date": "2026-11-03",
+ "model": "gemini-3.5-flash-lite",
+ "prompt_versions": {
+  "extract": "extract-v1",
+  "judge": "judge-v1",
+  "reflect": "reflect-v1"
+ },
+ "live_calls_this_run": 0,
+ "metrics": {
+  "accuracy": "29/30",
+  "accuracy_percent": 96.7,
+  "false_claims_caught": "11/12",
+  "true_claims_confirmed": "12/12",
+  "made_up_claims_left_unverified": "6/6",
+  "false_alarms (true claim called false)": 0,
+  "made_up claims given a confident verdict": 0,
+  "e2e_planted_errors_caught": "3/4",
+  "e2e_false_alarms": 1
+ },
+ "confusion": {
+  "SUPPORTED": {
+   "SUPPORTED": 12,
+   "CONTRADICTED": 0,
+   "NOT_ENOUGH_EVIDENCE": 0
+  },
+  "CONTRADICTED": {
+   "SUPPORTED": 0,
+   "CONTRADICTED": 11,
+   "NOT_ENOUGH_EVIDENCE": 1
+  },
+  "NOT_ENOUGH_EVIDENCE": {
+   "SUPPORTED": 0,
+   "CONTRADICTED": 0,
+   "NOT_ENOUGH_EVIDENCE": 6
+  }
+ },
+ "summary_markdown": "### Evaluation (2026-11-03, model `gemini-3.5-flash-lite`)\n\n**Part 1: 30 hand-labelled claims** (retrieve + judge + reflect)\n\n| Measure | Result |\n|---|---|\n| Overall accuracy | **29/30 (96.7%)** |\n| False claims caught (marked Contradicted) | 11/12 |\n| True claims confirmed (marked Supported) | 12/12 |\n| Made-up claims honestly left as Not enough evidence | 6/6 |\n| False alarms (a true claim marked Contradicted) | 0 |\n| Made-up claims given a confident verdict | 0 |\n\nRows = correct label, columns = what ClaimCheck said:\n\n| | Supported | Contradicted | Not enough evidence |\n|---|---|---|---|\n| **SUPPORTED** | 12 | 0 | 0 |\n| **CONTRADICTED** | 0 | 11 | 1 |\n| **NOT_ENOUGH_EVIDENCE** | 0 | 0 | 6 |\n\n**Part 2: 5 whole answers** (full pipeline, including claim extraction)\n\n- Planted errors caught: **3/4**\n- False alarms (a claim marked Contradicted that was not a planted error): **1**\n\nLive AI calls for this run: 0 (a re-run is served from the cache).\n\n**Honest limits:** this is a very small test set (30 claims, 5 answers) written by one person, using well-known, stable facts and hand-written search queries in Part 1. Real AI answers are messier, so real-world accuracy will likely be lower. The prompts were not changed after seeing these results.\n\n**Notes written after looking at the first run:**\n\n- The first live run used 19 live AI calls. The second run used 1 more: a Wikipedia search that had failed in run 1 now worked, so the reflect step had new evidence to judge (same scores). Later runs are served from the cache (0 calls).\n- The 1 end-to-end 'false alarm' (Great Pyramid tallest 'for more than 3,800 years') is really a labelling mistake by the author: current Wikipedia says 'more than 3,700 years', and the judge followed its evidence. The score is left as computed, not edited. It is a good example of numbers that differ between sources.\n- The missed false claim ('Amazon flows mainly through Argentina') came back Not enough evidence: the Wikipedia intro names Peru and Brazil but never says 'not Argentina'. The judge is told that missing information is not a contradiction, so it is cautious here.\n- The missed planted error (Venus day length) came back Not enough evidence because the Wikipedia intro does not mention day length.\n- One Wikipedia request (from the reflect step) still failed after 2 retries because Wikipedia was rate-limiting; that claim kept its first-round verdict.",
+ "claim_rows": [
+  {
+   "claim": "The Amazon River flows through Brazil.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence mentions Brazil multiple times in relation to the Amazon River, for example stating Brazilians call a section the Solimões River.",
+   "evidence_quote": "what countries other than Brazil consider to be the main stem of the Amazon",
+   "wikipedia_page": "Amazon River",
+   "re_checked": false
+  },
+  {
+   "claim": "William Shakespeare was born in London.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states that Shakespeare was born in Stratford-upon-Avon, not London.",
+   "evidence_quote": "Shakespeare was born and raised in Stratford-upon-Avon, Warwickshire.",
+   "wikipedia_page": "William Shakespeare",
+   "re_checked": false
+  },
+  {
+   "claim": "The physicist Halvard Quennell discovered the Quennell resonance in 1978.",
+   "expected": "NOT_ENOUGH_EVIDENCE",
+   "got": "NOT_ENOUGH_EVIDENCE",
+   "correct": true,
+   "reason": "The evidence is about Rhapsody in Blue by George Gershwin and does not mention Halvard Quennell or the Quennell resonance.",
+   "evidence_quote": "",
+   "wikipedia_page": "Rhapsody in Blue",
+   "re_checked": false
+  },
+  {
+   "claim": "The Pacific Ocean is the largest ocean on Earth.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence explicitly states that the Pacific Ocean is the largest ocean on Earth.",
+   "evidence_quote": "The Pacific Ocean is the largest and deepest of Earth's five oceanic divisions.",
+   "wikipedia_page": "Pacific Ocean",
+   "re_checked": false
+  },
+  {
+   "claim": "Sydney is the capital city of Australia.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states that Canberra is the national capital, and mentions Sydney only as a reference point for the national capital's location.",
+   "evidence_quote": "One of these, Canberra, is also the national capital.",
+   "wikipedia_page": "Australia, List of Australian capital cities",
+   "re_checked": true
+  },
+  {
+   "claim": "Albert Einstein developed the theory of relativity.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence clearly states that Albert Einstein is best known for developing the theory of relativity.",
+   "evidence_quote": "best known for developing the theory of relativity.",
+   "wikipedia_page": "Albert Einstein",
+   "re_checked": false
+  },
+  {
+   "claim": "Charles Darwin developed the theory of relativity.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states that the theory of relativity comprises two physics theories by Albert Einstein, not Charles Darwin.",
+   "evidence_quote": "The theory of relativity comprises two physics theories by Albert Einstein",
+   "wikipedia_page": "Theory of relativity",
+   "re_checked": false
+  },
+  {
+   "claim": "The town of Brindlemoor in Yorkshire has a famous glass bridge.",
+   "expected": "NOT_ENOUGH_EVIDENCE",
+   "got": "NOT_ENOUGH_EVIDENCE",
+   "correct": true,
+   "reason": "There is no evidence provided for the town of Brindlemoor or its glass bridge.",
+   "evidence_quote": "",
+   "wikipedia_page": "(none)",
+   "re_checked": false
+  },
+  {
+   "claim": "The Statue of Liberty was a gift from France to the United States.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence states that the statue was a gift to the United States from France.",
+   "evidence_quote": "a gift to the United States from the people of France",
+   "wikipedia_page": "Statue of Liberty",
+   "re_checked": false
+  },
+  {
+   "claim": "The Mona Lisa was painted by Michelangelo.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states the Mona Lisa was painted by Leonardo da Vinci, not Michelangelo.",
+   "evidence_quote": "portrait painting by the Italian artist Leonardo da Vinci.",
+   "wikipedia_page": "Mona Lisa",
+   "re_checked": false
+  },
+  {
+   "claim": "Canberra is the capital city of Australia.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence explicitly confirms that Canberra is the capital city of Australia.",
+   "evidence_quote": "Canberra (...) is the capital city of Australia",
+   "wikipedia_page": "Canberra",
+   "re_checked": false
+  },
+  {
+   "claim": "Saturn is the largest planet in the Solar System.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states Saturn is the second largest planet, after Jupiter, making it not the largest.",
+   "evidence_quote": "second largest planet in the Solar System, after Jupiter.",
+   "wikipedia_page": "Saturn",
+   "re_checked": false
+  },
+  {
+   "claim": "The novel 'The Silver Ledger' was written by Amara Okonjo.",
+   "expected": "NOT_ENOUGH_EVIDENCE",
+   "got": "NOT_ENOUGH_EVIDENCE",
+   "correct": true,
+   "reason": "No evidence was provided about the novel 'The Silver Ledger' or its author.",
+   "evidence_quote": "",
+   "wikipedia_page": "(none)",
+   "re_checked": false
+  },
+  {
+   "claim": "Leonardo da Vinci painted the Mona Lisa.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence explicitly states that Leonardo da Vinci painted the Mona Lisa.",
+   "evidence_quote": "portrait painting by the Italian artist Leonardo da Vinci.",
+   "wikipedia_page": "Mona Lisa",
+   "re_checked": false
+  },
+  {
+   "claim": "The Berlin Wall fell in 1991.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states the Berlin Wall existed from 1961 to 1989, not 1991.",
+   "evidence_quote": "encircled West Berlin from 1961 to 1989",
+   "wikipedia_page": "Berlin Wall",
+   "re_checked": false
+  },
+  {
+   "claim": "Jupiter is the largest planet in the Solar System.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence explicitly states that Jupiter is the largest planet in the Solar System.",
+   "evidence_quote": "Jupiter is the fifth planet from the Sun, and the largest in the Solar System.",
+   "wikipedia_page": "Jupiter",
+   "re_checked": false
+  },
+  {
+   "claim": "Mahatma Gandhi was assassinated in 1958.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states Mahatma Gandhi died on 30 January 1948, not 1958.",
+   "evidence_quote": "30 January 1948",
+   "wikipedia_page": "Mahatma Gandhi",
+   "re_checked": false
+  },
+  {
+   "claim": "The Zentrix-9 processor was the first chip made by Velmora Semiconductors.",
+   "expected": "NOT_ENOUGH_EVIDENCE",
+   "got": "NOT_ENOUGH_EVIDENCE",
+   "correct": true,
+   "reason": "There is no Wikipedia page or evidence provided for this processor or company.",
+   "evidence_quote": "",
+   "wikipedia_page": "(none)",
+   "re_checked": false
+  },
+  {
+   "claim": "Mahatma Gandhi was assassinated in 1948.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence gives Mahatma Gandhi's death date as 30 January 1948.",
+   "evidence_quote": "30 January 1948",
+   "wikipedia_page": "Mahatma Gandhi",
+   "re_checked": false
+  },
+  {
+   "claim": "The Statue of Liberty was a gift from Germany to the United States.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states the statue was a gift from France, not Germany.",
+   "evidence_quote": "a gift to the United States from the people of France",
+   "wikipedia_page": "Statue of Liberty",
+   "re_checked": false
+  },
+  {
+   "claim": "The Berlin Wall fell in 1989.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence states the Berlin Wall existed from 1961 to 1989, implying it fell in 1989.",
+   "evidence_quote": "encircled West Berlin from 1961 to 1989",
+   "wikipedia_page": "Berlin Wall",
+   "re_checked": false
+  },
+  {
+   "claim": "Mount Kilimanjaro is located in Kenya.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states that Mount Kilimanjaro is in Tanzania, not Kenya.",
+   "evidence_quote": "large dormant stratovolcano in Tanzania",
+   "wikipedia_page": "Mount Kilimanjaro",
+   "re_checked": false
+  },
+  {
+   "claim": "Isaac Newton formulated the laws of motion.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence explicitly states that the three laws of motion were first stated by Isaac Newton in his Principia Mathematica.",
+   "evidence_quote": "The three laws of motion were first stated by Isaac Newton",
+   "wikipedia_page": "Isaac Newton, Newton's laws of motion",
+   "re_checked": true
+  },
+  {
+   "claim": "Professor Ilsa Marrow-Kent wrote the textbook 'Foundations of Lattice Linguistics'.",
+   "expected": "NOT_ENOUGH_EVIDENCE",
+   "got": "NOT_ENOUGH_EVIDENCE",
+   "correct": true,
+   "reason": "The evidence discusses mathematical linguistics in general and does not mention Professor Ilsa Marrow-Kent or this textbook.",
+   "evidence_quote": "",
+   "wikipedia_page": "Mathematical linguistics",
+   "re_checked": false
+  },
+  {
+   "claim": "The Pacific Ocean is the smallest ocean on Earth.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states that the Pacific Ocean is the largest ocean, directly contradicting the claim that it is the smallest.",
+   "evidence_quote": "The Pacific Ocean is the largest and deepest of Earth's five oceanic divisions.",
+   "wikipedia_page": "Pacific Ocean",
+   "re_checked": false
+  },
+  {
+   "claim": "The Nile flows into the Mediterranean Sea.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence states that the Nile empties into the Mediterranean Sea.",
+   "evidence_quote": "empties into the Mediterranean Sea",
+   "wikipedia_page": "Nile",
+   "re_checked": false
+  },
+  {
+   "claim": "The first Harry Potter book was written by C. S. Lewis.",
+   "expected": "CONTRADICTED",
+   "got": "CONTRADICTED",
+   "correct": true,
+   "reason": "The evidence states that the first Harry Potter book was written by J. K. Rowling, contradicting that it was written by C. S. Lewis.",
+   "evidence_quote": "Harry Potter and the Philosopher's Stone is a fantasy novel by British author J. K. Rowling.",
+   "wikipedia_page": "Harry Potter and the Philosopher's Stone",
+   "re_checked": false
+  },
+  {
+   "claim": "The Orvanto Treaty was signed in 1842 between Portugal and Siam.",
+   "expected": "NOT_ENOUGH_EVIDENCE",
+   "got": "NOT_ENOUGH_EVIDENCE",
+   "correct": true,
+   "reason": "No evidence was found for the Orvanto Treaty.",
+   "evidence_quote": "",
+   "wikipedia_page": "(none)",
+   "re_checked": false
+  },
+  {
+   "claim": "William Shakespeare was born in Stratford-upon-Avon.",
+   "expected": "SUPPORTED",
+   "got": "SUPPORTED",
+   "correct": true,
+   "reason": "The evidence confirms that Shakespeare was born in Stratford-upon-Avon.",
+   "evidence_quote": "Shakespeare was born and raised in Stratford-upon-Avon, Warwickshire.",
+   "wikipedia_page": "William Shakespeare",
+   "re_checked": false
+  },
+  {
+   "claim": "The Amazon River flows mainly through Argentina.",
+   "expected": "CONTRADICTED",
+   "got": "NOT_ENOUGH_EVIDENCE",
+   "correct": false,
+   "reason": "The evidence does not mention Argentina, so the claim cannot be verified.",
+   "evidence_quote": "",
+   "wikipedia_page": "Amazon River, Amazon river dolphin",
+   "re_checked": true
+  }
+ ],
+ "answer_rows": [
+  {
+   "answer": "The Great Pyramid of Giza is in Egypt. It was built as a tomb for the pharaoh Khufu. It was the tallest man-made structure in the world for more than 3,800 years.",
+   "planted_errors": [],
+   "caught": [],
+   "false_alarms": [
+    "The Great Pyramid of Giza was the tallest man-made structure in the world for more than 3,800 years."
+   ],
+   "claims_found": 3,
+   "verdicts": [
+    "SUPPORTED: The Great Pyramid of Giza is located in Egypt.",
+    "SUPPORTED: The Great Pyramid of Giza was built as a tomb for the pharaoh Khufu.",
+    "CONTRADICTED: The Great Pyramid of Giza was the tallest man-made structure in the world for more than 3,800 years."
+   ]
+  },
+  {
+   "answer": "Alexander Graham Bell is credited with inventing the telephone. He was born in Edinburgh, Scotland, in 1847. He later founded the software company Microsoft.",
+   "planted_errors": [
+    "Microsoft"
+   ],
+   "caught": [
+    "Microsoft"
+   ],
+   "false_alarms": [],
+   "claims_found": 3,
+   "verdicts": [
+    "SUPPORTED: Alexander Graham Bell is credited with inventing the telephone.",
+    "NOT_ENOUGH_EVIDENCE: Alexander Graham Bell was born in Edinburgh, Scotland, in 1847.",
+    "CONTRADICTED: Alexander Graham Bell founded the software company Microsoft."
+   ]
+  },
+  {
+   "answer": "The Titanic sank in 1912 after hitting an iceberg on its maiden voyage from Southampton to New York City. It was operated by the Cunard Line.",
+   "planted_errors": [
+    "Cunard"
+   ],
+   "caught": [
+    "Cunard"
+   ],
+   "false_alarms": [],
+   "claims_found": 4,
+   "verdicts": [
+    "SUPPORTED: The Titanic sank in 1912.",
+    "SUPPORTED: The Titanic hit an iceberg on its maiden voyage.",
+    "SUPPORTED: The Titanic sailed from Southampton to New York City.",
+    "CONTRADICTED: The Titanic was operated by the Cunard Line."
+   ]
+  },
+  {
+   "answer": "Penicillin was discovered by Louis Pasteur in 1928. Penicillins are used to treat bacterial infections.",
+   "planted_errors": [
+    "Pasteur"
+   ],
+   "caught": [
+    "Pasteur"
+   ],
+   "false_alarms": [],
+   "claims_found": 2,
+   "verdicts": [
+    "CONTRADICTED: Penicillin was discovered by Louis Pasteur in 1928.",
+    "SUPPORTED: Penicillins are used to treat bacterial infections."
+   ]
+  },
+  {
+   "answer": "Venus is the second planet from the Sun. It is the hottest planet in the Solar System. A day on Venus is shorter than a day on Earth.",
+   "planted_errors": [
+    "shorter"
+   ],
+   "caught": [],
+   "false_alarms": [],
+   "claims_found": 3,
+   "verdicts": [
+    "SUPPORTED: Venus is the second planet from the Sun.",
+    "SUPPORTED: Venus is the hottest planet in the Solar System.",
+    "NOT_ENOUGH_EVIDENCE: A day on Venus is shorter than a day on Earth."
+   ]
+  }
+ ]
+}

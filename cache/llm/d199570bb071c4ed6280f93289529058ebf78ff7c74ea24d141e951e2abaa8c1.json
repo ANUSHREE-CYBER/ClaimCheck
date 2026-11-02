@@ -1,0 +1,16 @@
+{
+ "step": "reflect",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 2,
+    "reason": "The provided text describes the Taj Mahal and explains what a World Heritage Site is, but does not explicitly state that the Taj Mahal is a UNESCO World Heritage Site.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Taj Mahal UNESCO World Heritage Site"
+   }
+  ]
+ }
+}

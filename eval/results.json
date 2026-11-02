@@ -2,7 +2,7 @@
  "date": "2026-11-03",
  "model": "gemini-3.5-flash-lite",
  "prompt_versions": {
-  "extract": "extract-v1",
+  "extract": "extract-v2",
   "judge": "judge-v1",
   "reflect": "reflect-v1"
  },
@@ -35,7 +35,7 @@
    "NOT_ENOUGH_EVIDENCE": 6
   }
  },
- "summary_markdown": "### Evaluation (2026-11-03, model `gemini-3.5-flash-lite`)\n\n**Part 1: 30 hand-labelled claims** (retrieve + judge + reflect)\n\n| Measure | Result |\n|---|---|\n| Overall accuracy | **29/30 (96.7%)** |\n| False claims caught (marked Contradicted) | 11/12 |\n| True claims confirmed (marked Supported) | 12/12 |\n| Made-up claims honestly left as Not enough evidence | 6/6 |\n| False alarms (a true claim marked Contradicted) | 0 |\n| Made-up claims given a confident verdict | 0 |\n\nRows = correct label, columns = what ClaimCheck said:\n\n| | Supported | Contradicted | Not enough evidence |\n|---|---|---|---|\n| **SUPPORTED** | 12 | 0 | 0 |\n| **CONTRADICTED** | 0 | 11 | 1 |\n| **NOT_ENOUGH_EVIDENCE** | 0 | 0 | 6 |\n\n**Part 2: 5 whole answers** (full pipeline, including claim extraction)\n\n- Planted errors caught: **3/4**\n- False alarms (a claim marked Contradicted that was not a planted error): **1**\n\nLive AI calls for this run: 0 (a re-run is served from the cache).\n\n**Honest limits:** this is a very small test set (30 claims, 5 answers) written by one person, using well-known, stable facts and hand-written search queries in Part 1. Real AI answers are messier, so real-world accuracy will likely be lower. The prompts were not changed after seeing these results.\n\n**Notes written after looking at the first run:**\n\n- The first live run used 19 live AI calls. The second run used 1 more: a Wikipedia search that had failed in run 1 now worked, so the reflect step had new evidence to judge (same scores). Later runs are served from the cache (0 calls).\n- The 1 end-to-end 'false alarm' (Great Pyramid tallest 'for more than 3,800 years') is really a labelling mistake by the author: current Wikipedia says 'more than 3,700 years', and the judge followed its evidence. The score is left as computed, not edited. It is a good example of numbers that differ between sources.\n- The missed false claim ('Amazon flows mainly through Argentina') came back Not enough evidence: the Wikipedia intro names Peru and Brazil but never says 'not Argentina'. The judge is told that missing information is not a contradiction, so it is cautious here.\n- The missed planted error (Venus day length) came back Not enough evidence because the Wikipedia intro does not mention day length.\n- One Wikipedia request (from the reflect step) still failed after 2 retries because Wikipedia was rate-limiting; that claim kept its first-round verdict.",
+ "summary_markdown": "### Evaluation (2026-11-03, model `gemini-3.5-flash-lite`)\n\n**Part 1: 30 hand-labelled claims** (retrieve + judge + reflect)\n\n| Measure | Result |\n|---|---|\n| Overall accuracy | **29/30 (96.7%)** |\n| False claims caught (marked Contradicted) | 11/12 |\n| True claims confirmed (marked Supported) | 12/12 |\n| Made-up claims honestly left as Not enough evidence | 6/6 |\n| False alarms (a true claim marked Contradicted) | 0 |\n| Made-up claims given a confident verdict | 0 |\n\nRows = correct label, columns = what ClaimCheck said:\n\n| | Supported | Contradicted | Not enough evidence |\n|---|---|---|---|\n| **SUPPORTED** | 12 | 0 | 0 |\n| **CONTRADICTED** | 0 | 11 | 1 |\n| **NOT_ENOUGH_EVIDENCE** | 0 | 0 | 6 |\n\n**Part 2: 5 whole answers** (full pipeline, including claim extraction)\n\n- Planted errors caught: **3/4**\n- False alarms (a claim marked Contradicted that was not a planted error): **1**\n\nLive AI calls for this run: 0 (a re-run is served from the cache).\n\n**Honest limits:** this is a very small test set (30 claims, 5 answers) written by one person, using well-known, stable facts and hand-written search queries in Part 1. Real AI answers are messier, so real-world accuracy will likely be lower. The judge and reflect prompts were not changed after seeing these results; the extract prompt was changed once (v1 to v2, see notes).\n\n**Notes written after looking at the first run:**\n\n- Calls: the first live run used 19 live AI calls; the second used 1 more (a Wikipedia search that had failed in run 1 now worked, so the reflect step had new evidence; same scores). Later runs are served from the cache.\n- Extract prompt v1 -> v2: while preparing the demo, extract v1 was found to silently DROP statements the model believed were false (e.g. 'commissioned by Akbar', 'launched by the European Space Agency'), so the checker never saw those errors. The 5 answers here did not show this bug, because the test set is small. v2 says 'extract, do not judge' and a few-shot example keeps a wrong fact. Part 1 does not use the extract step, so it is unaffected. Part 2 was re-run with v2 (7 more live calls): the same scores as v1 (3/4 caught, 1 false alarm). The v1 results are saved in eval/results_extract_v1.json.\n- The 1 end-to-end 'false alarm' (Great Pyramid tallest 'for more than 3,800 years') is really a labelling mistake by the author: current Wikipedia says 'more than 3,700 years', and the judge followed its evidence. The score is left as computed, not edited. It is a good example of numbers that differ between sources.\n- The missed false claim ('Amazon flows mainly through Argentina') came back Not enough evidence: the Wikipedia intro names Peru and Brazil but never says 'not Argentina'. The judge is told that missing information is not a contradiction, so it is cautious here.\n- The missed planted error (Venus day length) came back Not enough evidence because the Wikipedia intro does not mention day length.\n- One Wikipedia request (from the reflect step) still failed after 2 retries because Wikipedia was rate-limiting; that claim kept its first-round verdict.",
  "claim_rows": [
   {
    "claim": "The Amazon River flows through Brazil.",
@@ -348,7 +348,7 @@
    ],
    "claims_found": 3,
    "verdicts": [
-    "SUPPORTED: The Great Pyramid of Giza is located in Egypt.",
+    "SUPPORTED: The Great Pyramid of Giza is in Egypt.",
     "SUPPORTED: The Great Pyramid of Giza was built as a tomb for the pharaoh Khufu.",
     "CONTRADICTED: The Great Pyramid of Giza was the tallest man-made structure in the world for more than 3,800 years."
    ]
@@ -378,11 +378,10 @@
     "Cunard"
    ],
    "false_alarms": [],
-   "claims_found": 4,
+   "claims_found": 3,
    "verdicts": [
-    "SUPPORTED: The Titanic sank in 1912.",
-    "SUPPORTED: The Titanic hit an iceberg on its maiden voyage.",
-    "SUPPORTED: The Titanic sailed from Southampton to New York City.",
+    "SUPPORTED: The Titanic sank in 1912 after hitting an iceberg.",
+    "SUPPORTED: The Titanic was on its maiden voyage from Southampton to New York City.",
     "CONTRADICTED: The Titanic was operated by the Cunard Line."
    ]
   },

@@ -1,0 +1,21 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "The Titanic sank in 1912 after hitting an iceberg.",
+    "search_query": "Titanic"
+   },
+   {
+    "claim": "The Titanic was on its maiden voyage from Southampton to New York City.",
+    "search_query": "Titanic"
+   },
+   {
+    "claim": "The Titanic was operated by the Cunard Line.",
+    "search_query": "Titanic"
+   }
+  ]
+ }
+}
