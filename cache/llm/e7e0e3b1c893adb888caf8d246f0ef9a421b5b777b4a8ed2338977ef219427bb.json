@@ -1,0 +1,23 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence explicitly states that Mount Fuji is the highest mountain in Japan.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "It is the highest mountain in Japan",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states the mountain is located on Honshu, contradicting the claim that it is on Hokkaido.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "located on the Japanese island of Honshu",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

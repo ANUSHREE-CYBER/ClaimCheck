@@ -269,10 +269,10 @@ If any of these differ from this brief, **follow reality, then update this file 
 
 ## 11. Definition of done
 
-- [ ] `streamlit run app.py` works with `MOCK_LLM=0` on the 5 to 6 demo cases, loaded from cache, with no budget used.
-- [ ] A fresh live check works, shows the calls counter, and a repeat is a cache hit.
-- [ ] Tests pass in mock mode. Evaluation ran and the results are saved and honestly reported.
-- [ ] Budget stop, retry limit and the friendly error message were each tested.
-- [ ] No key in any file that is committed. No deletions happened. No money spent.
-- [ ] `README.md` written. Obsidian note complete, including the viva sheet.
-- [ ] Final summary to AK: what works, what does not, real call count, honest limits.
+- [x] `streamlit run app.py` works with `MOCK_LLM=0` on the 5 to 6 demo cases, loaded from cache, with no budget used.
+- [x] A fresh live check works, shows the calls counter, and a repeat is a cache hit.
+- [x] Tests pass in mock mode. Evaluation ran and the results are saved and honestly reported.
+- [x] Budget stop, retry limit and the friendly error message were each tested.
+- [x] No key in any file that is committed. No deletions happened. No money spent.
+- [x] `README.md` written. Obsidian note complete, including the viva sheet.
+- [x] Final summary to AK: what works, what does not, real call count, honest limits.
