@@ -3,6 +3,9 @@ Shared test setup. Every test runs in mock mode with its own temporary cache
 and usage folders, and the internet is blocked, so tests never spend quota.
 """
 
+import time
+import types
+
 import pytest
 import requests
 
@@ -21,9 +24,11 @@ def isolated(tmp_path, monkeypatch):
         monkeypatch.setitem(llm.STATS, key, 0 if key in ("live_calls", "cache_hits") else None)
     llm._recent_call_times.clear()
 
-    # Record waits instead of really sleeping (keeps tests fast).
+    # Inside llm.py only: record waits instead of really sleeping (keeps tests fast).
     sleeps = []
-    monkeypatch.setattr(llm.time, "sleep", lambda seconds: sleeps.append(seconds))
+    fake_time = types.SimpleNamespace(monotonic=time.monotonic,
+                                      sleep=lambda seconds: sleeps.append(seconds))
+    monkeypatch.setattr(llm, "time", fake_time)
 
     # Block the internet: any real HTTP request fails the test.
     def no_network(*args, **kwargs):

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Planted errors",
+    "what_it_shows": "A mostly right answer with planted mistakes. The mistakes should come out red, with proof.",
+    "text": "The Taj Mahal is a mausoleum in Agra, India. It was commissioned by the Mughal emperor Akbar as a tomb for his favourite wife, Mumtaz Mahal. The building is made almost entirely of red sandstone. It is a UNESCO World Heritage Site."
+  },
+  {
+    "name": "All correct",
+    "what_it_shows": "A fully correct answer. Every claim should come out green.",
+    "text": "Mount Everest is Earth's highest mountain above sea level. It is located in the Himalayas, on the border between Nepal and China. Edmund Hillary and Tenzing Norgay made the first confirmed ascent of Everest in 1953."
+  },
+  {
+    "name": "Made-up research paper",
+    "what_it_shows": "An invented scientist and paper. There is no Wikipedia page, so the honest answer is 'Not enough evidence', not 'false'.",
+    "text": "The 2019 paper 'Recursive Quantum Gradient Folding' by Dr. Elena Vasquez-Thornbury of MIT introduced the QGF algorithm, which cut neural network training time by 94%. Vasquez-Thornbury later won the Turing Award for this work."
+  },
+  {
+    "name": "A known limitation",
+    "what_it_shows": "Popular myths and changing numbers. Wikipedia's short intro often does not mention them, so some claims stay unchecked even though they are wrong.",
+    "text": "The Great Wall of China is visible from the Moon with the naked eye. Goldfish have a memory span of only three seconds. Tokyo has about 37 million people in its metro area."
+  },
+  {
+    "name": "Space history",
+    "what_it_shows": "A real-looking science answer with one wrong detail mixed in.",
+    "text": "Apollo 11 was the first crewed mission to land on the Moon, in July 1969. Neil Armstrong was the first person to walk on the lunar surface, followed by Buzz Aldrin. The mission was launched by the European Space Agency from French Guiana. Michael Collins stayed in lunar orbit in the command module."
+  }
+]
