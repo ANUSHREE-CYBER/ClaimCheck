@@ -1,0 +1,17 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "The Eiffel Tower is in Paris.",
+    "search_query": "Eiffel Tower"
+   },
+   {
+    "claim": "The Eiffel Tower was finished in 1925.",
+    "search_query": "Eiffel Tower"
+   }
+  ]
+ }
+}

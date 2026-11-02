@@ -1,0 +1,23 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states that the Eiffel Tower is a lattice tower on the Champ de Mars in Paris, France.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "Paris, France",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states the tower was built from 1887 to 1889, contradicting 1925.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "built the tower from 1887 to 1889",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

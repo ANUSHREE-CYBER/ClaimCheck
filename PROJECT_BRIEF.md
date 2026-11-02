@@ -258,6 +258,13 @@ claimcheck/
 
 If any of these differ from this brief, **follow reality, then update this file and note it in the Obsidian log.**
 
+**Verified on 3 Nov 2026 (Phase 2):**
+- Model in use: **`gemini-3.5-flash-lite`** (set in `config.py`, override with `GEMINI_MODEL` in `.env`). `gemini-2.5-flash-lite` still appears in the model list but returns 404 "no longer available to new users".
+- Free-tier RPM/RPD numbers are not on Google's public docs page any more; they are only visible in AI Studio (aistudio.google.com/rate-limit). Our own caps (8/min, 60/session, 200/day) stay as the safety net.
+- JSON output: `response_mime_type="application/json"` + `response_schema=<pydantic class>` works in `google-genai` 2.34.0, and keeps the field order (reason before verdict). Gemini 3.x thinking is set to `MINIMAL` via `thinking_config`.
+- The SDK does not retry by itself unless `retry_options` is set, so all retries are ours and all are counted.
+- Python 3.12.9; all packages install fine. The `.claude/settings.json` deny syntax `Bash(rm:*)` works (tested: `rm` was blocked).
+
 ---
 
 ## 11. Definition of done

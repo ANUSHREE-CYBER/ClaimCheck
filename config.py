@@ -32,9 +32,13 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()  # optional fallback
 MOCK_LLM = os.getenv("MOCK_LLM", "1").strip() == "1"
 
 # --- Models (checked against the live model list in Phase 2) ---
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "").strip() or "gemini-2.5-flash-lite"
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "").strip() or "gemini-3.5-flash-lite"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "").strip() or "llama-3.3-70b-versatile"
 TEMPERATURE = 0  # 0 = least random, same input gives (almost) same output
+# Gemini 3.x models can "think" privately before answering. Our judge already
+# writes its reasoning in the "reason" field, so we keep hidden thinking minimal
+# (faster, fewer tokens). Empty = use the model's own default.
+GEMINI_THINKING_LEVEL = os.getenv("GEMINI_THINKING_LEVEL", "MINIMAL").strip()
 
 # --- Quota protection ---
 SESSION_CALL_CAP = _int_env("SESSION_CALL_CAP", 60)   # live calls per app run

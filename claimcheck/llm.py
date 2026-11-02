@@ -229,6 +229,9 @@ def _call_gemini(system, prompt, schema, max_output_tokens):
         api_key=config.GEMINI_API_KEY,
         http_options=types.HttpOptions(timeout=60_000, retry_options=None),
     )
+    thinking = None
+    if config.GEMINI_THINKING_LEVEL:
+        thinking = types.ThinkingConfig(thinking_level=config.GEMINI_THINKING_LEVEL)
     try:
         response = client.models.generate_content(
             model=config.GEMINI_MODEL,
@@ -239,6 +242,7 @@ def _call_gemini(system, prompt, schema, max_output_tokens):
                 max_output_tokens=max_output_tokens,
                 response_mime_type="application/json",
                 response_schema=schema,
+                thinking_config=thinking,
             ),
         )
     except errors.APIError as error:
