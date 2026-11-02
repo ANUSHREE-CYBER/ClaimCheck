@@ -9,6 +9,7 @@ to the internet twice (and the demo works offline).
 
 import hashlib
 import json
+import time
 
 import requests
 
@@ -37,8 +38,14 @@ def _cache_path(query):
     return config.CACHE_DIR / "wiki" / f"{key}.json"
 
 
+_last_request_time = [0.0]
+MIN_SECONDS_BETWEEN_REQUESTS = 0.5   # be polite: Wikipedia blocks fast bursts
+WIKI_RETRY_WAITS = [3, 8]            # Wikipedia is free, so a retry costs no AI quota
+
+
 def _fetch_from_wikipedia(query):
-    """One HTTP request: search + intro text of the top result together."""
+    """One HTTP request: search + intro text of the top result together.
+    Retries up to 2 times if Wikipedia says "too many requests" (429) or has a server error."""
     params = {
         "action": "query",
         "format": "json",
@@ -50,9 +57,18 @@ def _fetch_from_wikipedia(query):
         "explaintext": 1,        # plain text, no HTML
         "redirects": 1,
     }
-    response = requests.get(WIKI_API, params=params, headers=HEADERS, timeout=20)
-    response.raise_for_status()
-    return response.json()
+    for attempt in range(len(WIKI_RETRY_WAITS) + 1):
+        gap = time.monotonic() - _last_request_time[0]
+        if gap < MIN_SECONDS_BETWEEN_REQUESTS:
+            time.sleep(MIN_SECONDS_BETWEEN_REQUESTS - gap)
+        _last_request_time[0] = time.monotonic()
+        response = requests.get(WIKI_API, params=params, headers=HEADERS, timeout=20)
+        temporary = response.status_code == 429 or response.status_code >= 500
+        if temporary and attempt < len(WIKI_RETRY_WAITS):
+            time.sleep(WIKI_RETRY_WAITS[attempt])
+            continue
+        response.raise_for_status()
+        return response.json()
 
 
 def search_wikipedia(query):

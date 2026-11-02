@@ -37,6 +37,11 @@ def test_page_loads_with_mock_badge_and_tabs(app):
     assert any("Live calls used" in m.value for m in app.sidebar.markdown)
 
 
+def test_evaluation_tab_shows_saved_results(app):
+    assert "Overall accuracy" in all_markdown(app)
+    assert "small test set" in all_markdown(app)
+
+
 def test_check_button_shows_colour_coded_claims(app):
     app.text_area(key="answer_text").input("The Eiffel Tower was built for the 1900 World's Fair.").run()
     app.button[-1].click().run()  # the "Check" button

@@ -1,0 +1,65 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states that the statue was a gift to the United States from France.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "a gift to the United States from the people of France",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states the Mona Lisa was painted by Leonardo da Vinci, not Michelangelo.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "portrait painting by the Italian artist Leonardo da Vinci.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence explicitly confirms that Canberra is the capital city of Australia.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "Canberra (...) is the capital city of Australia",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 4,
+    "reason": "The evidence states Saturn is the second largest planet, after Jupiter, making it not the largest.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "second largest planet in the Solar System, after Jupiter.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 5,
+    "reason": "No evidence was provided about the novel 'The Silver Ledger' or its author.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "The Silver Ledger Amara Okonjo"
+   },
+   {
+    "claim_id": 6,
+    "reason": "The evidence explicitly states that Leonardo da Vinci painted the Mona Lisa.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "portrait painting by the Italian artist Leonardo da Vinci.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 7,
+    "reason": "The evidence states the Berlin Wall existed from 1961 to 1989, not 1991.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "encircled West Berlin from 1961 to 1989",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 8,
+    "reason": "The evidence explicitly states that Jupiter is the largest planet in the Solar System.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "Jupiter is the fifth planet from the Sun, and the largest in the Solar System.",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

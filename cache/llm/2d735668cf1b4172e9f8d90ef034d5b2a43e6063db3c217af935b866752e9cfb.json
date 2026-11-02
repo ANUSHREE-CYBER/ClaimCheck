@@ -1,0 +1,65 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence mentions Brazil multiple times in relation to the Amazon River, for example stating Brazilians call a section the Solimões River.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "what countries other than Brazil consider to be the main stem of the Amazon",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states that Shakespeare was born in Stratford-upon-Avon, not London.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "Shakespeare was born and raised in Stratford-upon-Avon, Warwickshire.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence is about Rhapsody in Blue by George Gershwin and does not mention Halvard Quennell or the Quennell resonance.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Halvard Quennell Quennell resonance"
+   },
+   {
+    "claim_id": 4,
+    "reason": "The evidence explicitly states that the Pacific Ocean is the largest ocean on Earth.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "The Pacific Ocean is the largest and deepest of Earth's five oceanic divisions.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 5,
+    "reason": "The provided text about Australia does not mention its capital city, Sydney.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "capital city of Australia"
+   },
+   {
+    "claim_id": 6,
+    "reason": "The evidence clearly states that Albert Einstein is best known for developing the theory of relativity.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "best known for developing the theory of relativity.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 7,
+    "reason": "The evidence states that the theory of relativity comprises two physics theories by Albert Einstein, not Charles Darwin.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "The theory of relativity comprises two physics theories by Albert Einstein",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 8,
+    "reason": "There is no evidence provided for the town of Brindlemoor or its glass bridge.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Brindlemoor Yorkshire glass bridge"
+   }
+  ]
+ }
+}

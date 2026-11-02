@@ -1,0 +1,37 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states that the Titanic sank on 15 April 1912.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "sank in the early hours of 15 April 1912",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence confirms the Titanic struck an iceberg on its maiden voyage.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "after striking an iceberg on her maiden voyage",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence explicitly states the voyage was from Southampton, England, to New York City.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "from Southampton, England, to New York City",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 4,
+    "reason": "The evidence states that the Titanic was operated by the White Star Line, not the Cunard Line.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "Titanic was operated by the White Star Line",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

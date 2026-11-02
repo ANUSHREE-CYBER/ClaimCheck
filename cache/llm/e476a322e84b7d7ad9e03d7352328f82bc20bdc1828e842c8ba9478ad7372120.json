@@ -1,0 +1,30 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states he is credited with patenting the first practical telephone and awarded the first U.S. patent for it, aligning with being credited for inventing it.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "credited with patenting the first practical telephone",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states he was Scottish-born and born on March 3, 1847, but does not mention Edinburgh as his birthplace.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Alexander Graham Bell birthplace Edinburgh"
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence states he co-founded AT&T, not Microsoft.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "He also co-founded the American Telephone and Telegraph Company (AT&T) in 1885.",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

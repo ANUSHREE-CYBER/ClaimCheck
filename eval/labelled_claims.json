@@ -1,0 +1,57 @@
+{
+  "about": "Hand-labelled test set, written before any results were seen. Only stable, well-known facts. 'search_query' is written by hand (the extract step is tested separately in the end-to-end answers).",
+  "review_notes_written_after_the_first_run": [
+    "The first live run used 19 live AI calls. The second run used 1 more: a Wikipedia search that had failed in run 1 now worked, so the reflect step had new evidence to judge (same scores). Later runs are served from the cache (0 calls).",
+    "The 1 end-to-end 'false alarm' (Great Pyramid tallest 'for more than 3,800 years') is really a labelling mistake by the author: current Wikipedia says 'more than 3,700 years', and the judge followed its evidence. The score is left as computed, not edited. It is a good example of numbers that differ between sources.",
+    "The missed false claim ('Amazon flows mainly through Argentina') came back Not enough evidence: the Wikipedia intro names Peru and Brazil but never says 'not Argentina'. The judge is told that missing information is not a contradiction, so it is cautious here.",
+    "The missed planted error (Venus day length) came back Not enough evidence because the Wikipedia intro does not mention day length.",
+    "One Wikipedia request (from the reflect step) still failed after 2 retries because Wikipedia was rate-limiting; that claim kept its first-round verdict."
+  ],
+  "claims": [
+    {"claim": "The Amazon River flows through Brazil.", "search_query": "Amazon River", "label": "SUPPORTED"},
+    {"claim": "William Shakespeare was born in London.", "search_query": "William Shakespeare", "label": "CONTRADICTED"},
+    {"claim": "The physicist Halvard Quennell discovered the Quennell resonance in 1978.", "search_query": "Quennell resonance", "label": "NOT_ENOUGH_EVIDENCE"},
+    {"claim": "The Pacific Ocean is the largest ocean on Earth.", "search_query": "Pacific Ocean", "label": "SUPPORTED"},
+    {"claim": "Sydney is the capital city of Australia.", "search_query": "Australia", "label": "CONTRADICTED"},
+    {"claim": "Albert Einstein developed the theory of relativity.", "search_query": "Albert Einstein", "label": "SUPPORTED"},
+    {"claim": "Charles Darwin developed the theory of relativity.", "search_query": "Theory of relativity", "label": "CONTRADICTED"},
+    {"claim": "The town of Brindlemoor in Yorkshire has a famous glass bridge.", "search_query": "Brindlemoor Yorkshire", "label": "NOT_ENOUGH_EVIDENCE"},
+
+    {"claim": "The Statue of Liberty was a gift from France to the United States.", "search_query": "Statue of Liberty", "label": "SUPPORTED"},
+    {"claim": "The Mona Lisa was painted by Michelangelo.", "search_query": "Mona Lisa", "label": "CONTRADICTED"},
+    {"claim": "Canberra is the capital city of Australia.", "search_query": "Canberra", "label": "SUPPORTED"},
+    {"claim": "Saturn is the largest planet in the Solar System.", "search_query": "Saturn", "label": "CONTRADICTED"},
+    {"claim": "The novel 'The Silver Ledger' was written by Amara Okonjo.", "search_query": "The Silver Ledger Amara Okonjo", "label": "NOT_ENOUGH_EVIDENCE"},
+    {"claim": "Leonardo da Vinci painted the Mona Lisa.", "search_query": "Mona Lisa", "label": "SUPPORTED"},
+    {"claim": "The Berlin Wall fell in 1991.", "search_query": "Berlin Wall", "label": "CONTRADICTED"},
+    {"claim": "Jupiter is the largest planet in the Solar System.", "search_query": "Jupiter", "label": "SUPPORTED"},
+
+    {"claim": "Mahatma Gandhi was assassinated in 1958.", "search_query": "Mahatma Gandhi", "label": "CONTRADICTED"},
+    {"claim": "The Zentrix-9 processor was the first chip made by Velmora Semiconductors.", "search_query": "Velmora Semiconductors", "label": "NOT_ENOUGH_EVIDENCE"},
+    {"claim": "Mahatma Gandhi was assassinated in 1948.", "search_query": "Mahatma Gandhi", "label": "SUPPORTED"},
+    {"claim": "The Statue of Liberty was a gift from Germany to the United States.", "search_query": "Statue of Liberty", "label": "CONTRADICTED"},
+    {"claim": "The Berlin Wall fell in 1989.", "search_query": "Berlin Wall", "label": "SUPPORTED"},
+    {"claim": "Mount Kilimanjaro is located in Kenya.", "search_query": "Mount Kilimanjaro", "label": "CONTRADICTED"},
+    {"claim": "Isaac Newton formulated the laws of motion.", "search_query": "Isaac Newton", "label": "SUPPORTED"},
+    {"claim": "Professor Ilsa Marrow-Kent wrote the textbook 'Foundations of Lattice Linguistics'.", "search_query": "Foundations of Lattice Linguistics", "label": "NOT_ENOUGH_EVIDENCE"},
+
+    {"claim": "The Pacific Ocean is the smallest ocean on Earth.", "search_query": "Pacific Ocean", "label": "CONTRADICTED"},
+    {"claim": "The Nile flows into the Mediterranean Sea.", "search_query": "Nile", "label": "SUPPORTED"},
+    {"claim": "The first Harry Potter book was written by C. S. Lewis.", "search_query": "Harry Potter and the Philosopher's Stone", "label": "CONTRADICTED"},
+    {"claim": "The Orvanto Treaty was signed in 1842 between Portugal and Siam.", "search_query": "Orvanto Treaty", "label": "NOT_ENOUGH_EVIDENCE"},
+    {"claim": "William Shakespeare was born in Stratford-upon-Avon.", "search_query": "William Shakespeare", "label": "SUPPORTED"},
+    {"claim": "The Amazon River flows mainly through Argentina.", "search_query": "Amazon River", "label": "CONTRADICTED"}
+  ],
+  "answers": [
+    {"text": "The Great Pyramid of Giza is in Egypt. It was built as a tomb for the pharaoh Khufu. It was the tallest man-made structure in the world for more than 3,800 years.",
+     "planted_errors": []},
+    {"text": "Alexander Graham Bell is credited with inventing the telephone. He was born in Edinburgh, Scotland, in 1847. He later founded the software company Microsoft.",
+     "planted_errors": ["Microsoft"]},
+    {"text": "The Titanic sank in 1912 after hitting an iceberg on its maiden voyage from Southampton to New York City. It was operated by the Cunard Line.",
+     "planted_errors": ["Cunard"]},
+    {"text": "Penicillin was discovered by Louis Pasteur in 1928. Penicillins are used to treat bacterial infections.",
+     "planted_errors": ["Pasteur"]},
+    {"text": "Venus is the second planet from the Sun. It is the hottest planet in the Solar System. A day on Venus is shorter than a day on Earth.",
+     "planted_errors": ["shorter"]}
+  ]
+}

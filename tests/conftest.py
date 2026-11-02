@@ -10,7 +10,7 @@ import pytest
 import requests
 
 import config
-from claimcheck import llm
+from claimcheck import evidence, llm
 
 
 @pytest.fixture(autouse=True)
@@ -29,6 +29,7 @@ def isolated(tmp_path, monkeypatch):
     fake_time = types.SimpleNamespace(monotonic=time.monotonic,
                                       sleep=lambda seconds: sleeps.append(seconds))
     monkeypatch.setattr(llm, "time", fake_time)
+    monkeypatch.setattr(evidence, "time", fake_time)
 
     # Block the internet: any real HTTP request fails the test.
     def no_network(*args, **kwargs):

@@ -1,0 +1,30 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence explicitly states that Venus is the second planet from the Sun.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "Venus is the second planet from the Sun.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence explicitly states that Venus is the hottest planet in the solar system.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "making it the hottest planet in the solar system",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The provided text does not mention the length of a day on Venus or Earth.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Venus rotation period day length"
+   }
+  ]
+ }
+}

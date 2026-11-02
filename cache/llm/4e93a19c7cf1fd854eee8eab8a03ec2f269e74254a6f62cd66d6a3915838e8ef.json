@@ -1,0 +1,65 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states Mahatma Gandhi died on 30 January 1948, not 1958.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "30 January 1948",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "There is no Wikipedia page or evidence provided for this processor or company.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Velmora Semiconductors Zentrix-9 processor"
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence gives Mahatma Gandhi's death date as 30 January 1948.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "30 January 1948",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 4,
+    "reason": "The evidence states the statue was a gift from France, not Germany.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "a gift to the United States from the people of France",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 5,
+    "reason": "The evidence states the Berlin Wall existed from 1961 to 1989, implying it fell in 1989.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "encircled West Berlin from 1961 to 1989",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 6,
+    "reason": "The evidence states that Mount Kilimanjaro is in Tanzania, not Kenya.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "large dormant stratovolcano in Tanzania",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 7,
+    "reason": "The evidence states Newton's book established classical mechanics and mentions his role in the Scientific Revolution, but does not explicitly mention the laws of motion.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Isaac Newton laws of motion"
+   },
+   {
+    "claim_id": 8,
+    "reason": "The evidence discusses mathematical linguistics in general and does not mention Professor Ilsa Marrow-Kent or this textbook.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "Foundations of Lattice Linguistics"
+   }
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence discusses what penicillins are and their clinical use, but does not mention Louis Pasteur or the year 1928.",
+    "verdict": "NOT_ENOUGH_EVIDENCE",
+    "evidence_quote": "",
+    "better_search_query": "penicillin discovery Alexander Fleming 1928"
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence states that penicillins were effective against bacterial infections and are still widely used today for various bacterial infections.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "They are still widely used today for various bacterial infections",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

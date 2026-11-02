@@ -1,0 +1,17 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "Penicillin was discovered by Louis Pasteur in 1928.",
+    "search_query": "Penicillin"
+   },
+   {
+    "claim": "Penicillins are used to treat bacterial infections.",
+    "search_query": "Penicillin"
+   }
+  ]
+ }
+}

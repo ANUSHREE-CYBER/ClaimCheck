@@ -1,0 +1,30 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence explicitly states that the Great Pyramid of Giza is located in Giza, Egypt.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "landmark of the Giza pyramid complex in Giza, Egypt.",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 2,
+    "reason": "The evidence explicitly confirms that the pyramid served as the tomb for Egyptian Pharaoh Khufu.",
+    "verdict": "SUPPORTED",
+    "evidence_quote": "The Great Pyramid served as the tomb of Egyptian Pharaoh Khufu",
+    "better_search_query": ""
+   },
+   {
+    "claim_id": 3,
+    "reason": "The evidence states it was the world's tallest human-made structure for more than 3,700 years, contradicting the claim of more than 3,800 years.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "world's tallest human-made structure for more than 3,700 years.",
+    "better_search_query": ""
+   }
+  ]
+ }
+}
