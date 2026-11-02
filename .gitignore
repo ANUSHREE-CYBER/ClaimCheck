@@ -1,0 +1,12 @@
+# Secrets: never commit
+.env
+
+# Local environment and runtime state
+.venv/
+.state/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Things marked for deletion (never deleted automatically)
+_to_delete/
