@@ -1,0 +1,16 @@
+{
+ "step": "judge",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "results": [
+   {
+    "claim_id": 1,
+    "reason": "The evidence states that Mount Fuji is located on the Japanese island of Honshu, not in Paris.",
+    "verdict": "CONTRADICTED",
+    "evidence_quote": "located on the Japanese island of Honshu",
+    "better_search_query": ""
+   }
+  ]
+ }
+}

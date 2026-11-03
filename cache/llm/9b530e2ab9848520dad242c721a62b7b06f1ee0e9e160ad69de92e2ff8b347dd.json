@@ -1,0 +1,13 @@
+{
+ "step": "extract",
+ "provider": "gemini",
+ "model": "gemini-3.5-flash-lite",
+ "response": {
+  "claims": [
+   {
+    "claim": "Mount Fuji is in Paris",
+    "search_query": "Mount Fuji"
+   }
+  ]
+ }
+}
