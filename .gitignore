@@ -10,3 +10,7 @@ __pycache__/
 
 # Things marked for deletion (never deleted automatically)
 _to_delete/
+
+# Local working notes and tool settings (kept on disk, not in git)
+.claude/
+PROJECT_BRIEF.md
