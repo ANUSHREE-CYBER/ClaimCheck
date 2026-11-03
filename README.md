@@ -17,6 +17,10 @@ It runs on the **free Gemini API** (`gemini-3.5-flash-lite`).
 
 Needs Python 3.12 (tested with 3.12.9) on Windows.
 
+You need **your own free Gemini API key** (from Google AI Studio, https://aistudio.google.com/apikey; no billing needed).
+The key goes only in a `.env` file that you copy from `.env.example`. `.env` is in `.gitignore`, so it is never committed.
+Set `MOCK_LLM=0` in `.env` for real checks (the example file starts in mock mode).
+
 ```powershell
 py -3.12 -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
